@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+
+.custom-input::placeholder {
+	color: #888; 
+}
+
+
+.custom-input:focus::placeholder {
+	color: #ccc; 
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%; 
+    }
+
+    .custom-input {
+        width: 100%;
+        
+    }
+
+    .btn-registrar {
+        width: 100%;
+    }
+}

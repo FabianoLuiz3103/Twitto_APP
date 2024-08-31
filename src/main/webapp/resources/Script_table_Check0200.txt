@@ -1,0 +1,62 @@
+
+CREATE SEQUENCE postagem_seq;
+
+
+CREATE SEQUENCE usuarioRede_seq;
+
+
+CREATE TABLE postagem (
+    idpostagem        VARCHAR2(6 CHAR) NOT NULL,
+    mensagem          VARCHAR2(400 CHAR) NOT NULL,
+    qtdcurtidas       NUMBER(4) NOT NULL,
+    datapostagem      DATE NOT NULL,
+    dataupdate        DATE,
+    usuario_idusuario VARCHAR2(6 CHAR) NOT NULL
+);
+
+
+CREATE OR REPLACE TRIGGER postagem_id_trigger
+BEFORE INSERT ON postagem
+FOR EACH ROW
+BEGIN
+    SELECT 'P' || TO_CHAR(postagem_seq.nextval, 'FM0000')
+    INTO :NEW.idpostagem
+    FROM dual;
+END;
+/
+
+
+ALTER TABLE postagem ADD CONSTRAINT postagem_pk PRIMARY KEY (idpostagem);
+
+
+CREATE TABLE usuarioRede (
+    idusuarioRede    VARCHAR2(6 CHAR) NOT NULL,
+    nome             VARCHAR2(50 CHAR) NOT NULL,
+    idade            NUMBER(3) NOT NULL,
+    email            VARCHAR2(50 CHAR) NOT NULL,
+    senha            VARCHAR2(12 CHAR) NOT NULL,
+    datacadastro     DATE NOT NULL,
+    dataupdate       DATE
+);
+
+
+CREATE OR REPLACE TRIGGER usuarioRede_id_trigger
+BEFORE INSERT ON usuarioRede
+FOR EACH ROW
+BEGIN
+    SELECT 'U' || TO_CHAR(usuarioRede_seq.nextval, 'FM0000')
+    INTO :NEW.idusuarioRede
+    FROM dual;
+END;
+/
+
+
+ALTER TABLE usuarioRede ADD CONSTRAINT usuarioRede_pk PRIMARY KEY (idusuarioRede);
+
+
+ALTER TABLE postagem
+    ADD CONSTRAINT postagem_usuario_fk FOREIGN KEY (usuario_idusuario)
+    REFERENCES usuarioRede (idusuarioRede);
+
+
+COMMIT;

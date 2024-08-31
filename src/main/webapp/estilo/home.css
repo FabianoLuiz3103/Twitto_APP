@@ -1,0 +1,99 @@
+@charset "ISO-8859-1";
+
+.campo {
+        padding: 12px;
+        cursor: pointer;
+    }
+
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-conteudo {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .fechar-modal {
+        float: right;
+        cursor: pointer;
+    }
+
+    .linha {
+    border-bottom: 1.5px solid #676464;
+    width: 80%;
+    position: absolute;
+    bottom: 3;
+    margin: auto;
+}
+
+.card-postagem {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-postagem:hover {
+    transform: translateY(-5px);
+}
+.blockquote-footer.date::before {
+    content: ""; 
+}
+
+.btn-like {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.btn-like.clicked i {
+    color: red; 
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%; 
+    }
+
+    .custom-input {
+        width: 100%; 
+        
+    }
+
+    .btn-registrar {
+        width: 80%;
+    }
+    
+    .card-celular{
+      width: 17rem !important;
+    }
+    .linha-celular{
+     width: 15rem !important;
+     margin-left: -18px !important;
+    }
+    .area{
+    width: 18rem !important;
+    }
+     .areaB{
+    width: 20rem !important;
+    }
+    .userOn{
+    margin-left: -10px !important;
+    }
+    .modPost{
+    width: 22rem !important;
+    }
+    
+}
